@@ -56,8 +56,9 @@ public class Main {
 
 
         // ----------------------
-        realty1.setUser(userSami);
-        userSami.setRealtyList(List.of(realty1, realty2));
+        userSami.setRealtyList(List.of(realty1));
+        userPelin.setRealtyList(List.of(realty2, realty3, realty4, realty5));
+
 
         List<Realty> fovarilerim = new ArrayList<>();
 

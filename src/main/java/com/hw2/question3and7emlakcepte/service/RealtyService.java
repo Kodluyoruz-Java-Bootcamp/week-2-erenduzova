@@ -1,9 +1,7 @@
 package com.hw2.question3and7emlakcepte.service;
 
 import com.hw2.question3and7emlakcepte.dao.RealtyDao;
-import com.hw2.question3and7emlakcepte.model.Realty;
-import com.hw2.question3and7emlakcepte.model.RealtyStatus;
-import com.hw2.question3and7emlakcepte.model.User;
+import com.hw2.question3and7emlakcepte.model.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,8 +24,13 @@ public class RealtyService {
     }
 
     public void createRealty(Realty realty) {
-        realtyDao.saveRealty(realty);
-        System.out.println("createRealty : " + realty.getTitle());
+        if (realty.getUser().getRealtyList().size() >= 3 &&
+                (!realty.getUser().getType().equals(UserType.INDIVIDUAL)) || (!realty.getKind().equals(RealtyKind.HOUSE))) {
+            System.out.println("Max 3 house type realty by individual users");
+        } else {
+            realtyDao.saveRealty(realty);
+            System.out.println("createRealty : " + realty.getTitle());
+        }
     }
 
     public List<Realty> getAll(){
