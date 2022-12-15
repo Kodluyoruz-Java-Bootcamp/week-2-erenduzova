@@ -72,16 +72,28 @@ public class Main {
         Search search2 = prepareSearch(SearchType.DISTRICT, userSami, "Zekeriyaköy");
         Search search3 = prepareSearch(SearchType.PROVINCE, userPelin, "Ankara");
         Search search4 = prepareSearch(SearchType.DISTRICT, userEren, "Kavakpınar");
+        Search search5 = prepareSearch(SearchType.DISTRICT, userSami, "İzmir");
 
         searchService.makeSearch(search1);
         searchService.makeSearch(search2);
         searchService.makeSearch(search3);
         searchService.makeSearch(search4);
+        searchService.makeSearch(search5);
 
         // Print user's past searches
         searchService.printPastSearches(userEren);
 
         System.out.println("-----------------------------------------------");
+
+        System.out.println("-----------------------------------------------");
+        // Find realty count
+        searchService.findCount(search1);
+        searchService.findCount(search3);
+        searchService.findCount(search5);
+
+
+        System.out.println("-----------------------------------------------");
+
 
         // Print user's all realty
         realtyService.printAll(realtyService.getAllByUserName(userPelin));

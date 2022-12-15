@@ -47,6 +47,21 @@ public class SearchService {
 
     }
 
+    public void getCountByDistrict(String district) {
+        System.out.println(district + " ilçesindeki ilanlar: ");
+        System.out.println(getAll().stream()
+                .filter(realty -> realty.getDistrict().equals(district)).count());
+        ;
+
+    }
+
+    public void getCountByProvince(String province) {
+        System.out.println(province + " ilindeki ilanlar: ");
+        System.out.println(getAll().stream()
+                .filter(realty -> realty.getProvince().equals(province)).count());
+
+    }
+
     public void createSearch(Search search) {
         searchDao.addSearch(search);
     }
@@ -64,5 +79,14 @@ public class SearchService {
         System.out.println(user.getName() + " kullanıcısının aramaları");
         searchDao.getSearches().stream().filter(search -> search.getUser().equals(user))
                 .forEach(System.out::println);
+    }
+
+
+    public void findCount(Search search) {
+        if (search.getSearchType().equals(SearchType.PROVINCE)) {
+            getCountByProvince(search.getSearchedWord());
+        } else if (search.getSearchType().equals(SearchType.DISTRICT)) {
+            getCountByDistrict(search.getSearchedWord());
+        }
     }
 }
