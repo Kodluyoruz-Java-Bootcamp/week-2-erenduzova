@@ -2,10 +2,7 @@ package com.hw2.question3and7emlakcepte.service;
 
 import com.hw2.question3and7emlakcepte.dao.RealtyDao;
 import com.hw2.question3and7emlakcepte.dao.SearchDao;
-import com.hw2.question3and7emlakcepte.model.Realty;
-import com.hw2.question3and7emlakcepte.model.Search;
-import com.hw2.question3and7emlakcepte.model.SearchType;
-import com.hw2.question3and7emlakcepte.model.User;
+import com.hw2.question3and7emlakcepte.model.*;
 
 import java.util.List;
 
@@ -59,7 +56,6 @@ public class SearchService {
         System.out.println(province + " ilindeki ilanlar: ");
         System.out.println(getAll().stream()
                 .filter(realty -> realty.getProvince().equals(province)).count());
-
     }
 
     public void createSearch(Search search) {
@@ -88,5 +84,14 @@ public class SearchService {
         } else if (search.getSearchType().equals(SearchType.DISTRICT)) {
             getCountByDistrict(search.getSearchedWord());
         }
+    }
+
+    public void findSaleHouseCount(String province) {
+        System.out.println(province + " ilinde bulunanan satılık konut sayısı : ");
+        System.out.println(getAll().stream()
+                .filter(realty -> realty.getProvince().equals(province))
+                .filter(realty -> realty.getKind().equals(RealtyKind.HOUSE))
+                .filter(realty -> realty.getType().equals(RealtyType.SALE))
+                .count());
     }
 }

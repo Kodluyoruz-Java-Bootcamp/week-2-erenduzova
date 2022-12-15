@@ -2,7 +2,7 @@ package com.hw2.question3and7emlakcepte.service;
 
 import com.hw2.question3and7emlakcepte.dao.RealtyDao;
 import com.hw2.question3and7emlakcepte.model.Realty;
-import com.hw2.question3and7emlakcepte.model.RealtyType;
+import com.hw2.question3and7emlakcepte.model.RealtyStatus;
 import com.hw2.question3and7emlakcepte.model.User;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class RealtyService {
         System.out.println(user.getName() + " adlı kullanıcının aktif ilanları");
         return getAll().stream()
                 .filter(realty -> realty.getUser().getName().equals(user.getName()))
-                .filter(realty -> RealtyType.ACTIVE.equals(realty.getStatus()))
+                .filter(realty -> RealtyStatus.ACTIVE.equals(realty.getStatus()))
                 .collect(Collectors.toList());
 
     }

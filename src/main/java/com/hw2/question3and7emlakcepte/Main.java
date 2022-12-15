@@ -42,13 +42,17 @@ public class Main {
 
         System.out.println("----------------------------------");
 
-        Realty realty1 = prepareRealty(123L, "ZEKERİYAKÖY ' de 1200 M2 Satılık VİLLA", userSami, "İstanbul", "Zekeriyaköy");
-        Realty realty2 = prepareRealty(124L, "Büyükdere Ana Cadde üstünde 16.060 m2 kapalı alanlı PLAZA", userPelin, "İstanbul", "Büyükdere");
-        Realty realty3 = prepareRealty(125L, "KAVAKPINAR MAHALLESİNDE 2+1 80 M2 ARAKAT İSKANLI", userPelin, "Ankara", "Kavakpınar");
+        Realty realty1 = prepareRealty(123L, "ZEKERİYAKÖY ' de 1200 M2 Satılık VİLLA", userSami, RealtyKind.HOUSE, RealtyType.SALE, "İstanbul", "Zekeriyaköy");
+        Realty realty2 = prepareRealty(124L, "Büyükdere Ana Cadde üstünde 16.060 m2 kapalı alanlı PLAZA", userPelin, RealtyKind.APARTMENT, RealtyType.SALE, "İstanbul", "Büyükdere");
+        Realty realty3 = prepareRealty(125L, "KAVAKPINAR MAHALLESİNDE 2+1 80 M2 ARAKAT İSKANLI", userPelin, RealtyKind.HOUSE, RealtyType.RENT, "İstanbul", "Pendik");
+        Realty realty4 = prepareRealty(126L, "ERYAMAN KİRALIK 3+1 EŞYALI YUNUS EMRE ÇAĞDAŞ EPA PUSULA'DAN", userPelin, RealtyKind.HOUSE, RealtyType.RENT, "Ankara", "Etimesgut");
+        Realty realty5 = prepareRealty(127L, "Kemalpaşa Bağyurdun'da satılık kirazlık", userPelin, RealtyKind.LAND, RealtyType.SALE, "İzmir", "Kemalpaşa");
 
         realtyService.createRealty(realty1);
         realtyService.createRealty(realty2);
         realtyService.createRealty(realty3);
+        realtyService.createRealty(realty4);
+        realtyService.createRealty(realty5);
 
 
         // ----------------------
@@ -91,6 +95,12 @@ public class Main {
         searchService.findCount(search3);
         searchService.findCount(search5);
 
+        // Find istanbul ankara izmir sale house kind realty
+
+        searchService.findSaleHouseCount("İstanbul");
+        searchService.findSaleHouseCount("Ankara");
+        searchService.findSaleHouseCount("İzmir");
+
 
         System.out.println("-----------------------------------------------");
 
@@ -116,8 +126,8 @@ public class Main {
         return new User(name, email, password, UserType.INDIVIDUAL, List.of());
     }
 
-    private static Realty prepareRealty(Long no, String title, User user, String province, String district) {
-        return new Realty(no, title, user, RealtyType.ACTIVE, province, district);
+    private static Realty prepareRealty(Long no, String title, User user, RealtyKind kind, RealtyType type, String province, String district) {
+        return new Realty(no, title, user, RealtyStatus.ACTIVE, kind, type, province, district);
     }
 
     private static Search prepareSearch(SearchType searchType, User user, String searchedWord) {

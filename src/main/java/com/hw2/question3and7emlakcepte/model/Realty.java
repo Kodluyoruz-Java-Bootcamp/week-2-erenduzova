@@ -9,11 +9,13 @@ public class Realty {
     private String title;
     private LocalDateTime publishedDate = LocalDateTime.now();
     private User user;
-    private RealtyType status;
+    private RealtyStatus status;
+    private RealtyKind kind;
+    private RealtyType type;
     private String province;
     private String district;
 
-    public Realty(Long no, String title, User user, RealtyType status, String province, String district) {
+    public Realty(Long no, String title, User user, RealtyStatus status, RealtyKind kind, RealtyType type, String province, String district) {
         super();
         this.no = no;
         this.title = title;
@@ -21,6 +23,8 @@ public class Realty {
         this.status = status;
         this.province = province;
         this.district = district;
+        this.kind = kind;
+        this.type = type;
     }
 
     public Long getNo() {
@@ -48,11 +52,11 @@ public class Realty {
         this.user = user;
     }
 
-    public RealtyType getStatus() {
+    public RealtyStatus getStatus() {
         return status;
     }
 
-    public void setStatus(RealtyType status) {
+    public void setStatus(RealtyStatus status) {
         this.status = status;
     }
 
@@ -72,10 +76,26 @@ public class Realty {
         this.district = district;
     }
 
+    public RealtyKind getKind() {
+        return kind;
+    }
+
+    public void setKind(RealtyKind kind) {
+        this.kind = kind;
+    }
+
+    public RealtyType getType() {
+        return type;
+    }
+
+    public void setType(RealtyType type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Realty [no=" + no + ", title=" + title + ", publishedDate=" + publishedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + ", user=" + user
-                + ", status=" + getStatus() + ", province=" + province + "]";
+                + ", status=" + status + ", kind=" + kind + ", type=" + type + ", province=" + province + "]";
     }
 
 }
