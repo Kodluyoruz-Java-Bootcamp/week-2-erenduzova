@@ -103,6 +103,12 @@ public class Main {
 
 
         System.out.println("-----------------------------------------------");
+        // Province 10
+        searchService.provinceDisplay("İstanbul");
+        searchService.provinceDisplay("Ankara");
+        searchService.provinceDisplay("İzmir");
+
+        System.out.println("-----------------------------------------------");
 
 
         // Print user's all realty

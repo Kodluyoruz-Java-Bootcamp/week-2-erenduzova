@@ -94,4 +94,11 @@ public class SearchService {
                 .filter(realty -> realty.getType().equals(RealtyType.SALE))
                 .count());
     }
+
+
+    public void provinceDisplay(String province) {
+        System.out.println(province + " Şehir Vitrini");
+        realtyDao.findAll().stream().filter(realty -> realty.getProvince().equals(province))
+                .limit(10).forEach(System.out::println);
+    }
 }
