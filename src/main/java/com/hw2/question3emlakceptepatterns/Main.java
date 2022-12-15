@@ -5,17 +5,21 @@ import com.hw2.question3emlakceptepatterns.model.*;
 import com.hw2.question3emlakceptepatterns.service.RealtyService;
 import com.hw2.question3emlakceptepatterns.service.UserService;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) {
-
+/*
         //Singleton
         UserService userService = UserService.getInstance();
         RealtyService realtyService = RealtyService.getInstance();
+*/
+        //Factory
+        Factory factory = new Factory();
+        UserService userService = (UserService) factory.getBean(UserService.class);
+        RealtyService realtyService = (RealtyService) factory.getBean(RealtyService.class);
 
         User userPelin = prepareUser("Pelin", "mimar.pelin@gmail.com", "Pelin123");
         User userSami = prepareUser("Sami", "sami@gmail.com", "123456");
