@@ -1,8 +1,7 @@
-package com.hw2.question3emlakceptepatterns.model;
+package com.hw2.question3and7emlakcepte.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class User {

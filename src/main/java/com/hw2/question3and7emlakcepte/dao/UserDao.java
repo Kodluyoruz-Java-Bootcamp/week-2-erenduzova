@@ -1,6 +1,6 @@
-package com.hw2.question3emlakceptepatterns.dao;
+package com.hw2.question3and7emlakcepte.dao;
 
-import com.hw2.question3emlakceptepatterns.model.User;
+import com.hw2.question3and7emlakcepte.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

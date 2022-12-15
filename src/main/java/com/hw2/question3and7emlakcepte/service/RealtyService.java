@@ -1,9 +1,9 @@
-package com.hw2.question3emlakceptepatterns.service;
+package com.hw2.question3and7emlakcepte.service;
 
-import com.hw2.question3emlakceptepatterns.dao.RealtyDao;
-import com.hw2.question3emlakceptepatterns.model.Realty;
-import com.hw2.question3emlakceptepatterns.model.RealtyType;
-import com.hw2.question3emlakceptepatterns.model.User;
+import com.hw2.question3and7emlakcepte.dao.RealtyDao;
+import com.hw2.question3and7emlakcepte.model.Realty;
+import com.hw2.question3and7emlakcepte.model.RealtyType;
+import com.hw2.question3and7emlakcepte.model.User;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +13,8 @@ public class RealtyService {
     // Singleton Pattern
     private static RealtyService realtyService;
     private RealtyDao realtyDao = RealtyDao.getInstance();
-    public RealtyService() {
+
+    private RealtyService() {
 
     }
 
@@ -37,13 +38,6 @@ public class RealtyService {
         realtList.forEach(System.out::println);
     }
 
-    public void getAllByProvince(String province) {
-        System.out.println(province + " bölgesindeki ilanlar: ");
-        getAll().stream()
-                .filter(realty -> realty.getProvince().equals(province))
-                .forEach(System.out::println);
-
-    }
 
     public List<Realty> getAllByUserName(User user){
         System.out.println(user.getName() + " adlı kullanıcının ilanları");

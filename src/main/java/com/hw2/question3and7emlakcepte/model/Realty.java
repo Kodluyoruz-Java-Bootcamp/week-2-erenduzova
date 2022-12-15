@@ -1,4 +1,4 @@
-package com.hw2.question3emlakceptepatterns.model;
+package com.hw2.question3and7emlakcepte.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,15 +11,18 @@ public class Realty {
     private User user;
     private RealtyType status;
     private String province;
+    private String district;
 
-    public Realty(Long no, String title, User user, RealtyType status, String province) {
+    public Realty(Long no, String title, User user, RealtyType status, String province, String district) {
         super();
         this.no = no;
         this.title = title;
         this.user = user;
         this.status = status;
         this.province = province;
+        this.district = district;
     }
+
     public Long getNo() {
         return no;
     }
@@ -59,6 +62,14 @@ public class Realty {
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     @Override

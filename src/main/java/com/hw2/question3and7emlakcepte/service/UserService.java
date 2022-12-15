@@ -1,7 +1,7 @@
-package com.hw2.question3emlakceptepatterns.service;
+package com.hw2.question3and7emlakcepte.service;
 
-import com.hw2.question3emlakceptepatterns.dao.UserDao;
-import com.hw2.question3emlakceptepatterns.model.User;
+import com.hw2.question3and7emlakcepte.dao.UserDao;
+import com.hw2.question3and7emlakcepte.model.User;
 
 import java.util.List;
 
