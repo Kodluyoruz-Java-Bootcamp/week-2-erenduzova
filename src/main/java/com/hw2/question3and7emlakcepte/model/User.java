@@ -1,5 +1,7 @@
 package com.hw2.question3and7emlakcepte.model;
 
+import com.hw2.question3and7emlakcepte.model.enums.UserType;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;

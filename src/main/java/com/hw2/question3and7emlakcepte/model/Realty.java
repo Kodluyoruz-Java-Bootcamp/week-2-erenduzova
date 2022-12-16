@@ -1,5 +1,9 @@
 package com.hw2.question3and7emlakcepte.model;
 
+import com.hw2.question3and7emlakcepte.model.enums.RealtyKind;
+import com.hw2.question3and7emlakcepte.model.enums.RealtyStatus;
+import com.hw2.question3and7emlakcepte.model.enums.RealtyType;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -94,7 +98,7 @@ public class Realty {
 
     @Override
     public String toString() {
-        return "Realty [no=" + no + ", title=" + title + ", publishedDate=" + publishedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + ", user=" + user
+        return "Realty [no=" + no + ", title=" + title + ", publishedDate=" + publishedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + ", user=" + user.getName()
                 + ", status=" + status + ", kind=" + kind + ", type=" + type + ", province=" + province + "]";
     }
 

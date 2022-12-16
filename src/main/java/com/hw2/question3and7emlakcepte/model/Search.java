@@ -1,5 +1,7 @@
 package com.hw2.question3and7emlakcepte.model;
 
+import com.hw2.question3and7emlakcepte.model.enums.SearchType;
+
 public class Search {
 
     private SearchType searchType;

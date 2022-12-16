@@ -2,7 +2,12 @@ package com.hw2.question3and7emlakcepte.service;
 
 import com.hw2.question3and7emlakcepte.dao.RealtyDao;
 import com.hw2.question3and7emlakcepte.dao.SearchDao;
-import com.hw2.question3and7emlakcepte.model.*;
+import com.hw2.question3and7emlakcepte.model.Realty;
+import com.hw2.question3and7emlakcepte.model.Search;
+import com.hw2.question3and7emlakcepte.model.User;
+import com.hw2.question3and7emlakcepte.model.enums.RealtyKind;
+import com.hw2.question3and7emlakcepte.model.enums.RealtyType;
+import com.hw2.question3and7emlakcepte.model.enums.SearchType;
 
 import java.util.List;
 
@@ -13,7 +18,7 @@ public class SearchService {
     private RealtyDao realtyDao = RealtyDao.getInstance();
     private SearchDao searchDao = SearchDao.getInstance();
 
-    public SearchService() {
+    private SearchService() {
 
     }
 

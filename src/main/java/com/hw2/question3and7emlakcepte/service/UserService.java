@@ -34,6 +34,10 @@ public class UserService {
         return userDao.findAllUsers();
     }
 
+    public User getUser(User searchedUser) {
+        return userDao.findAllUsers().stream().filter(user -> user.equals(searchedUser)).findFirst().orElse(null);
+    }
+
     public void printAllUser() {
         getAllUser().forEach(user -> System.out.println(user.getName()));
     }
@@ -46,6 +50,14 @@ public class UserService {
     }
 
     public void printUser(User searchedUser) {
-        userDao.findAllUsers().stream().filter(user -> user.equals(searchedUser)).findFirst().ifPresent(System.out::println);
+        if (getUser(searchedUser) == null) {
+            System.out.println("Not a user");
+        } else {
+            System.out.println(getUser(searchedUser));
+        }
+    }
+
+    public boolean hasMaxRealty(User searchedUser) {
+        return (getUser(searchedUser).getRealtyList().size() >= 3);
     }
 }

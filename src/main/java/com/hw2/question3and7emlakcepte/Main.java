@@ -1,7 +1,11 @@
 package com.hw2.question3and7emlakcepte;
 
 
-import com.hw2.question3and7emlakcepte.model.*;
+import com.hw2.question3and7emlakcepte.model.Message;
+import com.hw2.question3and7emlakcepte.model.Realty;
+import com.hw2.question3and7emlakcepte.model.Search;
+import com.hw2.question3and7emlakcepte.model.User;
+import com.hw2.question3and7emlakcepte.model.enums.*;
 import com.hw2.question3and7emlakcepte.service.RealtyService;
 import com.hw2.question3and7emlakcepte.service.SearchService;
 import com.hw2.question3and7emlakcepte.service.UserService;
@@ -25,7 +29,7 @@ public class Main {
 
         User userPelin = prepareUser("Pelin", "mimar.pelin@gmail.com", "Pelin123");
         User userSami = prepareUser("Sami", "sami@gmail.com", "123456");
-        User userEren = prepareUser("Eren", "eren_duzova@hotmail.com", "qwerty");
+        User userEren = prepareUser("Eren", "erend@gmail.com", "qwerty");
 
         // Create Users
         userService.createUser(userPelin);
@@ -134,7 +138,7 @@ public class Main {
     }
 
     private static Realty prepareRealty(Long no, String title, User user, RealtyKind kind, RealtyType type, String province, String district) {
-        return new Realty(no, title, user, RealtyStatus.ACTIVE, kind, type, province, district);
+        return new Realty(no, title, user, RealtyStatus.WAITING, kind, type, province, district);
     }
 
     private static Search prepareSearch(SearchType searchType, User user, String searchedWord) {
